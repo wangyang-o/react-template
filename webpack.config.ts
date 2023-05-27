@@ -1,7 +1,7 @@
 // 告诉 Node.js 使用 TypeScript 来解析该文件
 require("ts-node").register();
 const path = require("path");
-import webpack, { Configuration } from "webpack";
+import { Configuration } from "webpack";
 import { Configuration as DevServerConfiguration } from "webpack-dev-server";
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -54,15 +54,18 @@ const config: Config = {
         use: "babel-loader",
       },
       {
-        test: /\.css$/,
+        test: /\.(scss|css)$/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader : "style-loader",
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: {
+                localIdentName: "[local]_[hash:base64:5]",
+              },
             },
           },
+          "sass-loader",
         ],
       },
     ],
@@ -74,8 +77,8 @@ const config: Config = {
     }),
     isProduction &&
       new MiniCssExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].css",
+        filename: "styles/[name].css",
+        chunkFilename: "styles/[name].[chunkhash:4].css",
       }),
   ].filter(Boolean),
   devtool: "source-map",
