@@ -2,7 +2,7 @@ import * as React from "react";
 import { Outlet, useLoaderData } from "react-router-dom";
 import { A } from "../../components/A";
 
-export function Component() {
+export function About() {
   return (
     <div>
       <h2>About</h2>
@@ -11,3 +11,4 @@ export function Component() {
     </div>
   );
 }
+export const Component = () => <About />;

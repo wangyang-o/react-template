@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router-dom";
 import { Resume } from "../views/About/Resume";
 import { App } from "../App";
 import { NotFundPage } from "../views/NotFundPage";
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -12,16 +11,14 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "home",
-        lazy: () => import("@src/views/Home"),
+        lazy: () => import(/* webpackChunkName: "home" */ "@src/views/Home"),
         children: [
           {
             path: "washroom",
-            lazy: async () => {
-              let { Washroom } = await import(
-                /* webpackChunkName: "about" */ "@src/views/Home/Washroom"
-              );
-              return { Component: Washroom };
-            },
+            lazy: async () =>
+              import(
+                /* webpackChunkName: "washroom" */ "@src/views/Home/Washroom"
+              ),
           },
         ],
       },
@@ -31,7 +28,8 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "resume",
-            element: <Resume />,
+            lazy: () =>
+              import(/* webpackChunkName: "resume" */ "../views/About/Resume"),
           },
         ],
       },
