@@ -3,13 +3,12 @@ require("ts-node").register();
 const path = require("path");
 import { Configuration } from "webpack";
 import { Configuration as DevServerConfiguration } from "webpack-dev-server";
-
+const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 type Config = Configuration & DevServerConfiguration;
 const isProduction = process.env.NODE_ENV === "production";
-const isDevelopment = process.env.NODE_ENV === "development";
 
 const config: Config = {
   mode: isProduction ? "production" : "development",
@@ -22,6 +21,17 @@ const config: Config = {
     clean: true,
   },
   optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
+    ],
     splitChunks: {
       filename: "[name]/[name].chunk.js",
       cacheGroups: {
