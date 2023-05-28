@@ -1,0 +1,6 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    ".eslintrc": ".eslintrc,.eslintignore,.babelrc,.gitignore,.prettierignore,.prettierrc,tsconfig.json"
+  }
+}

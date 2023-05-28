@@ -9,7 +9,7 @@
     "format": "prettier --write . && eslint --fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "wangyang",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.21.8",
