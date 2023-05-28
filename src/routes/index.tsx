@@ -1,42 +1,41 @@
-import React from "react";
-import { createBrowserRouter } from "react-router-dom";
-import { Resume } from "../views/About/Resume";
-import { App } from "../App";
-import { NotFundPage } from "../views/NotFundPage";
+import React from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+import { App } from '../App';
+import { NotFundPage } from '../views/NotFundPage';
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <NotFundPage />,
     children: [
       {
-        path: "home",
-        lazy: () => import(/* webpackChunkName: "home" */ "@src/views/Home"),
+        path: 'home',
+        lazy: () => import(/* webpackChunkName: "home" */ '@src/views/Home'),
         children: [
           {
-            path: "washroom",
+            path: 'washroom',
             lazy: async () =>
               import(
-                /* webpackChunkName: "washroom" */ "@src/views/Home/Washroom"
+                /* webpackChunkName: "washroom" */ '@src/views/Home/Washroom'
               ),
           },
         ],
       },
       {
-        path: "about",
-        lazy: () => import(/* webpackChunkName: "about" */ "../views/About"),
+        path: 'about',
+        lazy: () => import(/* webpackChunkName: "about" */ '../views/About'),
         children: [
           {
-            path: "resume",
+            path: 'resume',
             lazy: () =>
-              import(/* webpackChunkName: "resume" */ "../views/About/Resume"),
+              import(/* webpackChunkName: "resume" */ '../views/About/Resume'),
           },
         ],
       },
     ],
   },
   {
-    path: "*",
+    path: '*',
     element: <NotFundPage />,
   },
 ]);

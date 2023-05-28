@@ -5,15 +5,14 @@
 // declare module "*.gif";
 // declare module "*.svg";
 
-
 // 导入 SCSS 模块
-declare module "*.scss" {
+declare module '*.scss' {
   const content: { [className: string]: string };
   export default content;
 }
 
 // 导入样式模块（SCSS）
-declare module "*.module.scss" {
+declare module '*.module.scss' {
   const classes: { [className: string]: string };
   export default classes;
 }

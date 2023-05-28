@@ -1,8 +1,8 @@
-import React from "react";
-import { Header } from "./Header";
-import { SideNav } from "./SideNav";
-import { Footer } from "./Footer";
-import styles from "./index.module.scss";
+import React from 'react';
+import { Header } from './Header';
+import { SideNav } from './SideNav';
+import { Footer } from './Footer';
+import styles from './index.module.scss';
 
 interface Props {
   children?: React.ReactNode;
