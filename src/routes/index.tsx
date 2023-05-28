@@ -14,10 +14,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: 'washroom',
-            lazy: async () =>
-              import(
-                /* webpackChunkName: "washroom" */ '@src/views/Home/Washroom'
-              ),
+            lazy: async () => import(/* webpackChunkName: "washroom" */ '@src/views/Home/Washroom'),
           },
         ],
       },
@@ -27,8 +24,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: 'resume',
-            lazy: () =>
-              import(/* webpackChunkName: "resume" */ '../views/About/Resume'),
+            lazy: () => import(/* webpackChunkName: "resume" */ '../views/About/Resume'),
           },
         ],
       },

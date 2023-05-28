@@ -5,5 +5,5 @@ import { router } from '@src/routes';
 import './reset.scss';
 
 createRoot(document.getElementById('root') as Element).render(
-  <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
+  <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />,
 );

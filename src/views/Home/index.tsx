@@ -5,7 +5,12 @@ import { LoaderFunction, Outlet, useLoaderData } from 'react-router-dom';
 const fetchData = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve({ list: [{ age: 1 }] });
+      const list = [
+        { age: 11, name: 'wy' },
+        { age: 11, name: 'wy' },
+      ];
+      const a = ['ahah', 'ashdj', 'ahah', '', 'ashdj', 'ashdj', 'ahah', '', 'ashdj'];
+      resolve({ list, a });
     }, 500);
   });
 };
