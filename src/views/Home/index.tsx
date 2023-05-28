@@ -11,14 +11,13 @@ const fetchData = () => {
 };
 export const loader: LoaderFunction = async (args) => {
   let data = await fetchData();
-  console.log(args);
   return data;
 };
 const Home = () => {
   const data = useLoaderData();
-  console.log(data);
   return (
     <div>
+      <h2>Home</h2>
       <Outlet></Outlet>
     </div>
   );

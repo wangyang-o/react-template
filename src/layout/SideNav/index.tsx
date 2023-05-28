@@ -1,5 +1,8 @@
-import React from 'react'
-
-export const SideNav = () => {
-  return <div>index</div>;
+import React from "react";
+interface Props {
+  className: string;
+}
+export const SideNav = (props: Props) => {
+  const { className } = props;
+  return <div className={className}>SideNav</div>;
 };

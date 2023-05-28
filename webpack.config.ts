@@ -9,7 +9,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 type Config = Configuration & DevServerConfiguration;
 const isProduction = process.env.NODE_ENV === "production";
-
 const config: Config = {
   mode: isProduction ? "production" : "development",
   entry: "./src/index.tsx",
