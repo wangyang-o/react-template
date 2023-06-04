@@ -20,6 +20,11 @@
       width: 20vw;
       border: 1px solid rebeccapurple;
       background: sandybrown;
+      transition: all 0.3s ease-out;
+      transform: translateX(0);
+      &.hidden {
+        transform: translateX(-100%);
+      }
     }
     .main {
       flex: 1;

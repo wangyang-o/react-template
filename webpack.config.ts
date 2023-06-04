@@ -6,7 +6,6 @@ import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 type Config = Configuration & DevServerConfiguration;
 const isProduction = process.env.NODE_ENV === 'production';
@@ -81,11 +80,6 @@ const config: Config = {
     ],
   },
   plugins: [
-    new ESLintPlugin({
-      fix: true, // 自动修复问题
-      exclude: '/node_modules/',
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       sourceMap: true,
