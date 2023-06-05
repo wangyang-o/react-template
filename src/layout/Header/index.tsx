@@ -1,17 +1,16 @@
 import { useStore } from '@src/store/useStore';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { shallow } from 'zustand/shallow';
 interface Props {
   className: string;
 }
 export const Header = (props: Props) => {
   const { className } = props;
-  const color = useStore.use.color();
-  const setColor = useStore.use.setColor();
-  useEffect(() => {
-    console.log('Header');
-  }, []);
-
+  // const color = useStore.use.color();
+  // const setColor = useStore.use.setColor();
+  const [color, setColor] = useStore((state) => [state.color, state.setColor], shallow);
+  console.log('Header render');
   return (
     <div className={className}>
       <div style={{ display: 'flex', gap: 8 }}>

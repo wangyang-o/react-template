@@ -5,13 +5,13 @@ import { Footer } from './Footer';
 import styles from './index.module.scss';
 import { useStore } from '@src/store/useStore';
 import classNames from 'classnames';
-
+import { shallow } from 'zustand/shallow';
 interface Props {
   children?: React.ReactNode;
 }
 export const Layout = (props: Props) => {
   const { children } = props;
-  const [headerActive, sideNavActive] = useStore((state) => [state.headerActive, state.sideNavActive]);
+  const [headerActive, sideNavActive] = useStore((state) => [state.headerActive, state.sideNavActive], shallow);
   return (
     <div className={styles.layout}>
       {headerActive && <Header className={styles.header}></Header>}

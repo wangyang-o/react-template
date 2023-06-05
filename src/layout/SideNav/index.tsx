@@ -1,5 +1,5 @@
 import { useStore } from '@src/store/useStore';
-import React, { useEffect } from 'react';
+import React from 'react';
 interface Props {
   className: string;
 }
@@ -7,9 +7,7 @@ export const SideNav = (props: Props) => {
   const { className } = props;
   const theme = useStore.use.theme();
   const setTheme = useStore.use.setTheme();
-  useEffect(() => {
-    console.log('SideNav');
-  }, []);
+  console.log('SideNav render');
   return (
     <div className={className}>
       SideNav

@@ -1,5 +1,5 @@
 import { useStore } from '@src/store/useStore';
-import React, { useEffect } from 'react';
+import React from 'react';
 interface Props {
   className: string;
 }
@@ -9,9 +9,7 @@ export const Footer = (props: Props) => {
   const setHeaderActive = useStore.use.setHeaderActive();
   const sideNavActive = useStore.use.sideNavActive();
   const setSideNavActive = useStore.use.setSideNavActive();
-  useEffect(() => {
-    console.log('footer');
-  }, []);
+  console.log('footer render');
   return (
     <div className={className}>
       <div>footer</div>
